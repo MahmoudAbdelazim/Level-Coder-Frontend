@@ -1,6 +1,6 @@
-import styles from "./Index.module.css";
+import styles from "./Landing.module.css";
 
-export default function Index() {
+export default function Landing() {
   return (
     <div className={styles.index}>
       <h1 className={styles.title}>Level Coder</h1>

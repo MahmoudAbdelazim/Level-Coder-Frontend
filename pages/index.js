@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer/Footer";
-import Index from "@/components/IndexPage/Index/Index";
+import Landing from "@/components/IndexPage/Landing/Landing";
+import Index from "@/components/IndexPage/Landing/Landing";
 import NavBar from "@/components/NavBar/NavBar";
 
 export default function IndexPage() {
@@ -7,7 +8,7 @@ export default function IndexPage() {
     <>
       <NavBar />
       <div className="main">
-        <Index />
+        <Landing />
       </div>
       <Footer />
     </>

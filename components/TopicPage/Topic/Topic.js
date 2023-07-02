@@ -14,10 +14,10 @@ export default function Topic() {
         <div className={styles.cardContainer}>
           <LeftCard />
         </div>
-        <div className={styles.problemsContainer}>
+        <div className={styles.problemsContainer + " " + styles.active}>
           <Problems />
         </div>
-        <div className={styles.resourcesContainer + " " + styles.active}>
+        <div className={styles.resourcesContainer}>
           <Resources />
         </div>
       </div>

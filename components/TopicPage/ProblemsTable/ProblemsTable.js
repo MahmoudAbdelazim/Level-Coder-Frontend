@@ -11,7 +11,9 @@ export default function ProblemsTable() {
       </thead>
       <tbody>
         <tr>
-          <td>New Problem II</td>
+          <td>
+            <a href="#">New Problem II</a>
+          </td>
           <td>
             <input type="checkbox" className="form-check-input" />
           </td>
