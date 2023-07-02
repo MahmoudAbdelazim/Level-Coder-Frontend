@@ -27,7 +27,7 @@ export default function ResourcesTable() {
                 <FaExternalLinkAlt />
               </a>
             </p>
-            <div class="collapse" id="collapseExample">
+            <div className="collapse" id="collapseExample">
               <div className={styles.section}>
                 <SectionsTable />
               </div>
