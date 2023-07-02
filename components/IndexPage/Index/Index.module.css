@@ -1,0 +1,30 @@
+.index {
+  text-align: center;
+  padding: 0 300px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 90px;
+  margin-top: 50px;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 22px;
+}
+
+.p {
+  margin-top: 50px;
+  color: rgb(190, 190, 190);
+}
+
+.prev {
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.signup {
+  margin-left: 10px;
+  margin-top: 20px;
+}

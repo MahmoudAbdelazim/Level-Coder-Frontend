@@ -1,0 +1,20 @@
+.problemsTable {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 30px;
+  margin-top: 20px;
+}
+
+.problemHeader {
+  width: 650px;
+}
+
+.problemsTable th,
+.problemsTable td {
+  padding: 20px;
+}
+
+.problemsTable input {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.625);
+  margin: auto;
+}

@@ -1,13 +1,13 @@
 import Footer from "@/components/Footer/Footer";
-import Index from "@/components/IndexPage/Index/Index";
+import Login from "@/components/LoginPage/Login/Login";
 import NavBar from "@/components/NavBar/NavBar";
 
-export default function IndexPage() {
+export default function SignupPage() {
   return (
     <>
       <NavBar />
       <div className="main">
-        <Index />
+        <Login />
       </div>
       <Footer />
     </>

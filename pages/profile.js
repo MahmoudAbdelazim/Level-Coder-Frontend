@@ -1,14 +1,11 @@
 import Footer from "@/components/Footer/Footer";
-import Index from "@/components/IndexPage/Index/Index";
 import NavBar from "@/components/NavBar/NavBar";
 
-export default function IndexPage() {
+export default function Profile() {
   return (
     <>
       <NavBar />
-      <div className="main">
-        <Index />
-      </div>
+      <div className="main"></div>
       <Footer />
     </>
   );

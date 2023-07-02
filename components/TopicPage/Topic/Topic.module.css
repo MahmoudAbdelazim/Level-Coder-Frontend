@@ -1,0 +1,38 @@
+.titleContainer {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.main {
+  margin-top: 50px;
+  display: flex;
+}
+
+.subtitle {
+  color: rgb(195, 195, 195);
+  font-size: 20px;
+}
+
+.cardContainer {
+  display: inline-block;
+  margin-right: 50px;
+  margin-left: 100px;
+}
+
+.problemsContainer {
+  margin-top: 50px;
+  display: none;
+}
+
+.problemsContainer.active {
+  display: inline-block;
+}
+
+.resourcesContainer {
+  margin-top: 50px;
+  display: none;
+}
+
+.resourcesContainer.active {
+  display: inline-block;
+}

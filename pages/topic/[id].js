@@ -1,13 +1,14 @@
 import Footer from "@/components/Footer/Footer";
-import Index from "@/components/IndexPage/Index/Index";
 import NavBar from "@/components/NavBar/NavBar";
+import Topic from "@/components/TopicPage/Topic/Topic";
+import Topics from "@/components/TopicsPage/Topics/Topics";
 
-export default function IndexPage() {
+export default function TopicPage() {
   return (
     <>
       <NavBar />
       <div className="main">
-        <Index />
+        <Topic />
       </div>
       <Footer />
     </>

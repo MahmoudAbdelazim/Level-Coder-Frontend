@@ -1,0 +1,26 @@
+.resourcesTable {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 30px;
+  margin-top: 20px;
+}
+
+.resourceHeader {
+  width: 650px;
+}
+
+.resourcesTable th,
+.resourcesTable td {
+  padding: 20px;
+}
+
+.resourcesTable input {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.625);
+  margin: auto;
+}
+
+.openLink {
+  margin-left: 20px;
+  font-size: 18px;
+  color: aquamarine;
+}
