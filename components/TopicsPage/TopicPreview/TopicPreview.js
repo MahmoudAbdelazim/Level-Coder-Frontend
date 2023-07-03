@@ -2,12 +2,12 @@ import styles from "./TopicPreview.module.css";
 import { FaHackerrank } from "react-icons/fa";
 import { SiCodeforces, SiLeetcode } from "react-icons/si";
 
-export default function TopicPreview() {
+export default function TopicPreview({ topic }) {
   return (
     <div className={styles.topicPreviewContainer}>
-      <a href="#">
+      <a href={`/topic/${topic.id}`}>
         <div className={styles.topicPreview}>
-          <h2 className={styles.title}>Binary Search</h2>
+          <h2 className={styles.title}>{topic.name}</h2>
           <div className={styles.bottom}>
             <div className={styles.platform}>
               <p className={styles.platformTitle}>
@@ -17,18 +17,7 @@ export default function TopicPreview() {
                 CodeForces
               </p>
               <p className={styles.count}>
-                <span>0/32</span> Problems
-              </p>
-            </div>
-            <div className={styles.platform}>
-              <p className={styles.platformTitle}>
-                <span>
-                  <FaHackerrank />
-                </span>
-                HackerRank
-              </p>
-              <p className={styles.count}>
-                <span>0/31</span> Problems
+                <span>0/{topic.cfCount}</span> Problems
               </p>
             </div>
             <div className={styles.platform}>
@@ -39,20 +28,31 @@ export default function TopicPreview() {
                 Leetcode
               </p>
               <p className={styles.count}>
-                <span>0/12</span> Problems
+                <span>0/{topic.lcCount}</span> Problems
+              </p>
+            </div>
+            <div className={styles.platform}>
+              <p className={styles.platformTitle}>
+                <span>
+                  <FaHackerrank />
+                </span>
+                HackerRank
+              </p>
+              <p className={styles.count}>
+                <span>0/{topic.hrCount}</span> Problems
               </p>
             </div>
           </div>
         </div>
         <div className={styles.progress}>
           <div className={styles.cf}>
-            50% <span className={styles.progressPlatform}>CodeForces</span>
+            0% <span className={styles.progressPlatform}>CodeForces</span>
           </div>
           <div className={styles.lc}>
-            20% <span className={styles.progressPlatform}>LeetCode</span>
+            0% <span className={styles.progressPlatform}>LeetCode</span>
           </div>
           <div className={styles.hr}>
-            80% <span className={styles.progressPlatform}>HackerRank</span>
+            0% <span className={styles.progressPlatform}>HackerRank</span>
           </div>
         </div>
       </a>
