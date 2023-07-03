@@ -4,3 +4,8 @@
   padding: 30px 30px 10px 30px;
   color: rgb(207, 207, 207);
 }
+
+.link {
+  color: white;
+  text-decoration: underline;
+}
