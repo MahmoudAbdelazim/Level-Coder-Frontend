@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "./ProblemsTable.module.css";
 
-export default function ProblemsTable({ active, topic }) {
+export default function ProblemsTable({ active, topic, setTopic }) {
   const [problems, setProblems] = useState([]);
 
   const { push, reload } = useRouter();
@@ -19,6 +19,34 @@ export default function ProblemsTable({ active, topic }) {
       }
     }
   }, [active, topic]);
+
+  const fetchProblems = async () => {
+    var myHeaders = new Headers();
+    if (localStorage.getItem("token") != null) {
+      myHeaders.append("Authorization", "Bearer " + localStorage["token"]);
+    }
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/problem/problems/1",
+        requestOptions
+      );
+      if (response.status == 200) {
+        const result = await response.json();
+        const newTopic = { ...topic };
+        newTopic.cfProblems = result.problems.cfProblems;
+        newTopic.lcProblems = result.problems.lcProblems;
+        newTopic.hrProblems = result.problems.hrProblems;
+        setTopic(newTopic);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleToggleSolved = async (problemId) => {
     if (localStorage.getItem("token") == null) {
@@ -44,7 +72,7 @@ export default function ProblemsTable({ active, topic }) {
         requestOptions
       );
       if (response.status == 200) {
-        reload();
+        fetchProblems();
       }
     } catch (err) {
       console.error(err);

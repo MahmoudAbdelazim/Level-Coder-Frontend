@@ -41,7 +41,7 @@ export default function TopicPage() {
     <>
       <NavBar />
       <div className="main">
-        <Topic topic={topic} />
+        <Topic topic={topic} setTopic={setTopic} />
       </div>
       <Footer />
     </>

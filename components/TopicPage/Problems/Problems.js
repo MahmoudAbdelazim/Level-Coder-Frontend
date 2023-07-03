@@ -4,7 +4,7 @@ import { SiCodeforces, SiLeetcode } from "react-icons/si";
 import ProblemsTable from "../ProblemsTable/ProblemsTable";
 import styles from "./Problems.module.css";
 
-export default function Problems({ topic }) {
+export default function Problems({ topic, setTopic }) {
   const [active, setActive] = useState("cf");
   return (
     <div className={styles.problems}>
@@ -55,7 +55,7 @@ export default function Problems({ topic }) {
           </a>
         </div>
       </div>
-      <ProblemsTable active={active} topic={topic} />
+      <ProblemsTable active={active} topic={topic} setTopic={setTopic} />
     </div>
   );
 }

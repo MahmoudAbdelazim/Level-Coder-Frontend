@@ -4,7 +4,7 @@ import Problems from "../Problems/Problems";
 import Resources from "../Resources/Resources";
 import styles from "./Topic.module.css";
 
-export default function Topic({ topic }) {
+export default function Topic({ topic, setTopic }) {
   const [active, setActive] = useState("problems");
   return (
     <div className={styles.topic}>
@@ -22,7 +22,7 @@ export default function Topic({ topic }) {
             (active == "problems" ? " " + styles.active : "")
           }
         >
-          <Problems topic={topic} />
+          <Problems topic={topic} setTopic={setTopic} />
         </div>
         <div
           className={
