@@ -33,3 +33,16 @@
 .successMsg {
   color: rgb(111, 255, 123);
 }
+
+@media only screen and (max-width: 500px) {
+  .profile {
+    margin-top: 50px;
+  }
+
+  .form {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+}

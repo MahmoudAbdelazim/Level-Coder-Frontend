@@ -94,3 +94,25 @@ input:-webkit-autofill {
   text-decoration: line-through !important;
   text-decoration-thickness: 1px !important;
 }
+
+@media only screen and (max-width: 500px) {
+  .navbar-brand {
+    font-size: 20px;
+  }
+
+  .navbar-nav {
+    text-align: right;
+  }
+
+  .navbar-toggler-icon {
+    width: 30px;
+  }
+
+  .navbar-nav {
+    margin-top: 20px;
+  }
+
+  .navbar-nav .dropdown-item {
+    text-align: right;
+  }
+}

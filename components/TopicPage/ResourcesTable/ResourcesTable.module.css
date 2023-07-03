@@ -31,3 +31,12 @@
   margin-top: 10px;
   color: rgb(188, 188, 188);
 }
+
+@media only screen and (max-width: 500px) {
+  .resourcesTable {
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+}

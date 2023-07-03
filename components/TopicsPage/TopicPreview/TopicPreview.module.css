@@ -72,3 +72,13 @@
   display: block;
   color: rgb(179, 179, 179);
 }
+
+@media only screen and (max-width: 500px) {
+  .topicPreviewContainer {
+    width: 100%;
+  }
+  .topicPreview {
+    width: 90%;
+    margin: auto;
+  }
+}

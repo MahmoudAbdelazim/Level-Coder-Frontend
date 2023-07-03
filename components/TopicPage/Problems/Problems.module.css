@@ -53,3 +53,17 @@
 .problemsTable th {
   color: rgb(197, 197, 197);
 }
+
+@media only screen and (max-width: 500px) {
+  .problems {
+    width: 95%;
+    margin: auto;
+  }
+
+  .platform {
+    width: 110px;
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+  }
+}

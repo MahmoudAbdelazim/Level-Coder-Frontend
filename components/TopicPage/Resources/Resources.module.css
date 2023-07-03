@@ -49,3 +49,10 @@
 .problemsTable th {
   color: rgb(197, 197, 197);
 }
+
+@media only screen and (max-width: 500px) {
+  .resources {
+    width: 95%;
+    margin: auto;
+  }
+}

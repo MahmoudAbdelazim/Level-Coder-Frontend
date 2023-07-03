@@ -1,4 +1,5 @@
 .topics {
   display: flex;
   flex-flow: wrap;
+  padding-bottom: 30px;
 }

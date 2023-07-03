@@ -21,14 +21,10 @@ export default function Index() {
         to learn problem solving
       </p>
       <p className={styles.p}>
-        Whether you're preparing for an coding interview or you want to
+        Whether you're preparing for a coding interview or you want to
         participate in competitive programming contests, or you're just
         passionate about coding and problem solving, you'll find what you need
       </p>
-
-      <button className={styles.lastTopic} onClick={(e) => push("/topic/1")}>
-        Continue with Binary Search
-      </button>
       <button
         className={`green ${styles.prev}`}
         onClick={(e) => push("/topics")}

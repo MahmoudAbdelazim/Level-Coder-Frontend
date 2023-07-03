@@ -17,7 +17,7 @@ export default function TopicPreview({ topic }) {
                 CodeForces
               </p>
               <p className={styles.count}>
-                <span>0/{topic.cfCount}</span> Problems
+                <span>{topic.cfCount}</span> Problems
               </p>
             </div>
             <div className={styles.platform}>
@@ -28,7 +28,7 @@ export default function TopicPreview({ topic }) {
                 Leetcode
               </p>
               <p className={styles.count}>
-                <span>0/{topic.lcCount}</span> Problems
+                <span>{topic.lcCount}</span> Problems
               </p>
             </div>
             <div className={styles.platform}>
@@ -39,20 +39,9 @@ export default function TopicPreview({ topic }) {
                 HackerRank
               </p>
               <p className={styles.count}>
-                <span>0/{topic.hrCount}</span> Problems
+                <span>{topic.hrCount}</span> Problems
               </p>
             </div>
-          </div>
-        </div>
-        <div className={styles.progress}>
-          <div className={styles.cf}>
-            0% <span className={styles.progressPlatform}>CodeForces</span>
-          </div>
-          <div className={styles.lc}>
-            0% <span className={styles.progressPlatform}>LeetCode</span>
-          </div>
-          <div className={styles.hr}>
-            0% <span className={styles.progressPlatform}>HackerRank</span>
           </div>
         </div>
       </a>

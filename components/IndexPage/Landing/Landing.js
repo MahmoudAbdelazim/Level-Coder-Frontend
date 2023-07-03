@@ -11,7 +11,7 @@ export default function Landing() {
         solving
       </p>
       <p className={styles.p}>
-        Whether you're preparing for an coding interview or you want to
+        Whether you're preparing for a coding interview or you want to
         participate in competitive programming contests, or you're just
         passionate about coding and problem solving, you'll find what you need
       </p>

@@ -5,8 +5,27 @@ import styles from "./NavBar.module.css";
 export default function NavBar() {
   const [signedIn, setSignedIn] = useState(true);
   const [name, setName] = useState("");
+  const [topics, setTopics] = useState([]);
 
   const { push, reload } = useRouter();
+
+  const fetchTopics = async () => {
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/topic/all-topics",
+        requestOptions
+      );
+      const result = await response.json();
+      setTopics(result.topics);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     if (localStorage.getItem("token") != null) {
@@ -16,6 +35,7 @@ export default function NavBar() {
       setSignedIn(false);
       setName("");
     }
+    fetchTopics();
   }, []);
 
   const handleLogout = () => {
@@ -29,12 +49,14 @@ export default function NavBar() {
   };
 
   return (
-    <nav className={`navbar navbar-expand-lg bg-light ${styles.nav}`}>
+    <nav
+      className={`navbar navbar-dark navbar-expand-sm bg-light ${styles.nav}`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href={"/"}>
           Level Coder
         </a>
-        <button
+        <a
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -44,7 +66,7 @@ export default function NavBar() {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
@@ -71,21 +93,15 @@ export default function NavBar() {
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Binary Search
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Dynamic Programming
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Graphs
-                  </a>
-                </li>
+                {topics.map((topic) => {
+                  return (
+                    <li>
+                      <a className="dropdown-item" href={"/topic/" + topic.id}>
+                        {topic.name}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </li>
             {!signedIn && (

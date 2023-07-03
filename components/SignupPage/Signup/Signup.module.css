@@ -31,3 +31,12 @@
 .msg {
   color: rgb(255, 98, 98);
 }
+
+@media only screen and (max-width: 500px) {
+  .signup {
+    padding-top: 50px;
+  }
+  .form {
+    width: fit-content;
+  }
+}

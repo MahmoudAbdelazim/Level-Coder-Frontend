@@ -24,3 +24,18 @@
   text-decoration: underline;
   transition: 0.2s;
 }
+
+@media only screen and (max-width: 500px) {
+  .problemsTable {
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  .problemsTable th,
+  .problemsTable td {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

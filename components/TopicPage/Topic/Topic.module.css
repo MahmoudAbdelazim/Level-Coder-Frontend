@@ -6,6 +6,7 @@
 .main {
   margin-top: 50px;
   display: flex;
+  flex-flow: wrap;
 }
 
 .subtitle {
@@ -35,4 +36,19 @@
 
 .resourcesContainer.active {
   display: inline-block;
+}
+
+@media only screen and (max-width: 500px) {
+  .cardContainer {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .problemsContainer {
+    width: 100%;
+  }
+
+  .resourcesContainer {
+    width: 100%;
+  }
 }

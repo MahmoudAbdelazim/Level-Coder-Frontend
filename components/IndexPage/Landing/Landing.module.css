@@ -28,3 +28,38 @@
   margin-left: 10px;
   margin-top: 20px;
 }
+
+@media only screen and (max-width: 500px) {
+  .index {
+    padding: 0px 50px;
+  }
+
+  .titleContainer {
+    width: fit-content;
+    font-weight: 300;
+  }
+
+  .title {
+    font-size: 50px;
+    font-weight: normal;
+  }
+
+  .p {
+    margin-top: 20px;
+    color: rgb(190, 190, 190);
+  }
+
+  .prev {
+    margin-right: 0;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .signup {
+    margin-left: 0;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
