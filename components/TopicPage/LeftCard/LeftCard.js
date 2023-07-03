@@ -1,10 +1,10 @@
 import styles from "./LeftCard.module.css";
 
-export default function LeftCard({ active, setActive }) {
+export default function LeftCard({ topic, active, setActive }) {
   return (
     <div className={styles.leftCard}>
       <div className={styles.desc}>
-        If you're new to Binary Search, or you want to get more advanced, take a
+        If you're new to {topic.name}, or you want to get more advanced, take a
         look at the learning resources
       </div>
       <div

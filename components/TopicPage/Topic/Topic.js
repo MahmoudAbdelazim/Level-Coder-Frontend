@@ -14,7 +14,7 @@ export default function Topic({ topic }) {
       </div>
       <div className={styles.main}>
         <div className={styles.cardContainer}>
-          <LeftCard active={active} setActive={setActive} />
+          <LeftCard topic={topic} active={active} setActive={setActive} />
         </div>
         <div
           className={
