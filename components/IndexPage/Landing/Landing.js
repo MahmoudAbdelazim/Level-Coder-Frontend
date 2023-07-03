@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import styles from "./Landing.module.css";
 
 export default function Landing() {
+  const { push, reload } = useRouter();
   return (
     <div className={styles.index}>
       <h1 className={styles.title}>Level Coder</h1>
@@ -14,8 +16,15 @@ export default function Landing() {
         passionate about coding and problem solving, you'll find what you need
       </p>
 
-      <button className={`green ${styles.prev}`}>Preview Topics</button>
-      <button className={styles.signup}>Sign Up</button>
+      <button
+        className={`green ${styles.prev}`}
+        onClick={(e) => push("/topics")}
+      >
+        Preview Topics
+      </button>
+      <button className={styles.signup} onClick={(e) => push("/signup")}>
+        Sign Up
+      </button>
     </div>
   );
 }

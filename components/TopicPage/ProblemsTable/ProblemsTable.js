@@ -22,6 +22,9 @@ export default function ProblemsTable({ active, topic }) {
       <thead>
         <tr>
           <th className={styles.problemHeader}>Problem</th>
+          {(active == "cf" || active == "lc") && <th>Difficulty</th>}
+          {active == "lc" && <th>Acceptance</th>}
+          {active == "hr" && <th>Success Rate</th>}
           <th>Solved</th>
         </tr>
       </thead>
@@ -30,10 +33,26 @@ export default function ProblemsTable({ active, topic }) {
           return (
             <tr>
               <td>
-                <a href={problem.link} target="_blank">
+                <a
+                  href={problem.link}
+                  target="_blank"
+                  className={styles.problemTitle}
+                >
                   {problem.title}
                 </a>
               </td>
+              {active == "cf" && <td>{problem.difficulty}</td>}
+              {active == "lc" && (
+                <td>
+                  {problem.difficulty == 1
+                    ? "Easy"
+                    : problem.difficulty == 2
+                    ? "Medium"
+                    : "Hard"}
+                </td>
+              )}
+              {active == "lc" && <td>{problem.acceptance}%</td>}
+              {active == "hr" && <td>{problem.successRate}%</td>}
               <td>
                 <input type="checkbox" className="form-check-input" />
               </td>

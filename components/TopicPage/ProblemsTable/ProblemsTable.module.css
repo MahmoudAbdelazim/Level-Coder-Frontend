@@ -5,10 +5,6 @@
   margin-bottom: 50px;
 }
 
-.problemHeader {
-  width: 650px;
-}
-
 .problemsTable th,
 .problemsTable td {
   padding: 20px;
@@ -17,5 +13,13 @@
 .problemsTable input {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.625);
-  margin: auto;
+}
+
+.problemsTable thead {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px;
+}
+
+.problemTitle {
+  font-weight: 700;
+  text-decoration: underline;
 }

@@ -40,25 +40,21 @@ button:hover {
 
 input {
   background-color: rgba(10, 25, 41, 1);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 5px;
   display: block;
   width: 100%;
   padding: 8px 20px;
-  border: none;
-  border: 1px solid rgb(164, 255, 164);
   outline: none;
   color: white;
+  border: none;
   margin-top: 5px;
   margin-bottom: 20px;
-  border-radius: 10px;
   transition: 0.2s;
 }
 
 input:hover,
 input:focus {
-  border: none;
-  border: 1px solid rgb(164, 255, 164);
-  outline: none;
-  background-color: rgb(8, 17, 27);
+  background-color: rgba(0, 0, 0, 0.111);
 }
 
 input:-webkit-autofill,
