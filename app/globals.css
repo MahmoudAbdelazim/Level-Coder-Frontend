@@ -89,3 +89,8 @@ input:-webkit-autofill {
   text-align: right;
   font-family: "Noto Sans Arabic", "Ubuntu", sans-serif;
 }
+
+.linethrough {
+  text-decoration: line-through !important;
+  text-decoration-thickness: 2px !important;
+}

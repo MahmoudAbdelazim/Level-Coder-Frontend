@@ -98,14 +98,20 @@ export default function ProblemsTable({ active, topic, setTopic }) {
                 <a
                   href={problem.link}
                   target="_blank"
-                  className={styles.problemTitle}
+                  className={
+                    styles.problemTitle + (problem.solved ? " linethrough" : "")
+                  }
                 >
                   {problem.title}
                 </a>
               </td>
-              {active == "cf" && <td>{problem.difficulty}</td>}
+              {active == "cf" && (
+                <td className={problem.solved ? " linethrough" : ""}>
+                  {problem.difficulty}
+                </td>
+              )}
               {active == "lc" && (
-                <td>
+                <td className={problem.solved ? " linethrough" : ""}>
                   {problem.difficulty == 1
                     ? "Easy"
                     : problem.difficulty == 2
@@ -113,8 +119,16 @@ export default function ProblemsTable({ active, topic, setTopic }) {
                     : "Hard"}
                 </td>
               )}
-              {active == "lc" && <td>{problem.acceptance}%</td>}
-              {active == "hr" && <td>{problem.successRate}%</td>}
+              {active == "lc" && (
+                <td className={problem.solved ? " linethrough" : ""}>
+                  {problem.acceptance}%
+                </td>
+              )}
+              {active == "hr" && (
+                <td className={problem.solved ? " linethrough" : ""}>
+                  {problem.successRate}%
+                </td>
+              )}
               <td>
                 <input
                   type="checkbox"
