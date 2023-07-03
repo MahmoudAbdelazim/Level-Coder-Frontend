@@ -1,20 +1,37 @@
+import { useState } from "react";
 import ResourcesTable from "../ResourcesTable/ResourcesTable";
 import styles from "./Resources.module.css";
 
-export default function Resources() {
+export default function Resources({ topic }) {
+  const [active, setActive] = useState("English");
   return (
     <div className={styles.resources}>
       <div className={styles.languages}>
-        <div className={styles.language + " " + styles.active}>
-          <a href="#">English</a>
+        <div
+          className={
+            styles.language + (active == "English" ? " " + styles.active : "")
+          }
+        >
+          <a href="#" onClick={() => setActive("English")}>
+            English
+          </a>
         </div>
-        <div className={styles.language}>
-          <a href="#" style={{ fontFamily: "Noto Sans Arabic" }}>
+        <div
+          className={
+            styles.language + (active == "Arabic" ? " " + styles.active : "")
+          }
+        >
+          <a
+            href="#"
+            onClick={() => setActive("Arabic")}
+            className="arabic"
+            style={{ textAlign: "center" }}
+          >
             عربى
           </a>
         </div>
       </div>
-      <ResourcesTable />
+      <ResourcesTable topic={topic} active={active} />
     </div>
   );
 }

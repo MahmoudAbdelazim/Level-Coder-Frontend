@@ -21,6 +21,13 @@
 
 .openLink {
   margin-left: 20px;
+  margin-right: 20px;
   font-size: 18px;
   color: aquamarine;
+}
+
+.description {
+  font-size: 13px;
+  margin-top: 10px;
+  color: rgb(188, 188, 188);
 }

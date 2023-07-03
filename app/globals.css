@@ -83,3 +83,9 @@ input:-webkit-autofill {
   background-color: rgba(10, 25, 41, 1) !important;
   color: white !important;
 }
+
+.arabic {
+  direction: rtl;
+  text-align: right;
+  font-family: "Noto Sans Arabic", "Ubuntu", sans-serif;
+}

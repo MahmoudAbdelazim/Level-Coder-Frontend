@@ -5,7 +5,7 @@ export default function ProblemsTable({ active, topic }) {
   const [problems, setProblems] = useState([]);
 
   useEffect(() => {
-    if (active) {
+    if (active && topic) {
       if (active == "cf") {
         if (topic.cfProblems) setProblems(topic.cfProblems);
       } else if (active == "lc") {
@@ -14,9 +14,7 @@ export default function ProblemsTable({ active, topic }) {
         if (topic.hrProblems) setProblems(topic.hrProblems);
       }
     }
-    console.log(topic);
-    console.log(active);
-  }, [active]);
+  }, [active, topic]);
   return (
     <table className={styles.problemsTable}>
       <thead>

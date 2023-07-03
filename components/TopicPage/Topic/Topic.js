@@ -30,7 +30,7 @@ export default function Topic({ topic }) {
             (active == "resources" ? " " + styles.active : "")
           }
         >
-          <Resources />
+          <Resources topic={topic} />
         </div>
       </div>
     </div>
