@@ -3,7 +3,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import SectionsTable from "../SectionsTable/SectionsTable";
 import styles from "./ResourcesTable.module.css";
 
-export default function ResourcesTable({ topic, active }) {
+export default function ResourcesTable({ topic, setTopic, active }) {
   const [resources, setResources] = useState([]);
   const [cls, setCls] = useState("");
 
@@ -21,6 +21,63 @@ export default function ResourcesTable({ topic, active }) {
     }
   }, [active, topic]);
 
+  const fetchResources = async () => {
+    var myHeaders = new Headers();
+    if (localStorage.getItem("token") != null) {
+      myHeaders.append("Authorization", "Bearer " + localStorage["token"]);
+    }
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/resource/resources/" + topic.id,
+        requestOptions
+      );
+      if (response.status == 200) {
+        const result = await response.json();
+        const newTopic = { ...topic };
+        newTopic.resources = result.resources;
+        setTopic(newTopic);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleToggleCompleted = async (resourceId) => {
+    if (localStorage.getItem("token") == null) {
+      push("/login");
+      return;
+    }
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + localStorage["token"]);
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      resource: resourceId,
+    });
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/resource/toggle-completed",
+        requestOptions
+      );
+      if (response.status == 200) {
+        fetchResources();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <table className={styles.resourcesTable}>
       <thead>
@@ -34,34 +91,37 @@ export default function ResourcesTable({ topic, active }) {
         {resources.map((resource) => {
           return (
             <tr>
-              <td>
-                <p
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseExample"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                  className={cls}
+              <td className={cls}>
+                <a
+                  href={resource.link}
+                  target={"_blank"}
+                  className={resource.completed ? " linethrough" : ""}
                 >
                   {resource.title}
-                  <a
-                    className={styles.openLink}
-                    href={resource.link}
-                    target={"_blank"}
-                  >
+                  <span className={styles.openLink}>
                     <FaExternalLinkAlt />
-                  </a>
-                  <p className={styles.description}>{resource.description}</p>
-                </p>
-                {/* <div className="collapse" id="collapseExample">
-                  <div className={styles.section}>
-                    <SectionsTable />
-                  </div>
-                </div> */}
+                  </span>
+                  <p
+                    className={
+                      styles.description +
+                      (resource.completed ? " linethrough" : "")
+                    }
+                  >
+                    {" "}
+                    {resource.description}
+                  </p>
+                </a>
               </td>
-              <td>{resource.platform}</td>
+              <td className={resource.completed ? " linethrough" : ""}>
+                {resource.platform}
+              </td>
               <td>
-                <input type="checkbox" className="form-check-input" />
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  checked={resource.completed ? true : false}
+                  onClick={() => handleToggleCompleted(resource.id)}
+                />
               </td>
             </tr>
           );

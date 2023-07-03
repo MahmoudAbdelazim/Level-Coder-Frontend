@@ -32,7 +32,7 @@ export default function ProblemsTable({ active, topic, setTopic }) {
     };
     try {
       const response = await fetch(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "/problem/problems/1",
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/problem/problems/" + topic.id,
         requestOptions
       );
       if (response.status == 200) {

@@ -92,5 +92,5 @@ input:-webkit-autofill {
 
 .linethrough {
   text-decoration: line-through !important;
-  text-decoration-thickness: 2px !important;
+  text-decoration-thickness: 1px !important;
 }

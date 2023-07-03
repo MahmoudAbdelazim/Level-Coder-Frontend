@@ -2,7 +2,7 @@ import { useState } from "react";
 import ResourcesTable from "../ResourcesTable/ResourcesTable";
 import styles from "./Resources.module.css";
 
-export default function Resources({ topic }) {
+export default function Resources({ topic, setTopic }) {
   const [active, setActive] = useState("English");
   return (
     <div className={styles.resources}>
@@ -31,7 +31,7 @@ export default function Resources({ topic }) {
           </a>
         </div>
       </div>
-      <ResourcesTable topic={topic} active={active} />
+      <ResourcesTable topic={topic} setTopic={setTopic} active={active} />
     </div>
   );
 }
