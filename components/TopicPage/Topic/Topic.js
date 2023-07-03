@@ -1,9 +1,11 @@
+import { useState } from "react";
 import LeftCard from "../LeftCard/LeftCard";
 import Problems from "../Problems/Problems";
 import Resources from "../Resources/Resources";
 import styles from "./Topic.module.css";
 
 export default function Topic({ topic }) {
+  const [active, setActive] = useState("problems");
   return (
     <div className={styles.topic}>
       <div className={styles.titleContainer}>
@@ -12,12 +14,22 @@ export default function Topic({ topic }) {
       </div>
       <div className={styles.main}>
         <div className={styles.cardContainer}>
-          <LeftCard />
+          <LeftCard active={active} setActive={setActive} />
         </div>
-        <div className={styles.problemsContainer + " " + styles.active}>
+        <div
+          className={
+            styles.problemsContainer +
+            (active == "problems" ? " " + styles.active : "")
+          }
+        >
           <Problems topic={topic} />
         </div>
-        <div className={styles.resourcesContainer}>
+        <div
+          className={
+            styles.resourcesContainer +
+            (active == "resources" ? " " + styles.active : "")
+          }
+        >
           <Resources />
         </div>
       </div>
