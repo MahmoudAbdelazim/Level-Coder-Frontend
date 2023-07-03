@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FaHackerrank } from "react-icons/fa";
+import { SiCodeforces, SiLeetcode } from "react-icons/si";
 import ProblemsTable from "../ProblemsTable/ProblemsTable";
 import styles from "./Problems.module.css";
 
@@ -16,7 +18,10 @@ export default function Problems({ topic }) {
           }
         >
           <a href="#" onClick={() => setActive("cf")}>
-            CodeForces
+            CodeForces{" "}
+            <span>
+              <SiCodeforces />
+            </span>
           </a>
         </div>
         <div
@@ -28,7 +33,10 @@ export default function Problems({ topic }) {
           }
         >
           <a href="#" onClick={() => setActive("lc")}>
-            LeetCode
+            LeetCode{" "}
+            <span>
+              <SiLeetcode />
+            </span>
           </a>
         </div>
         <div
@@ -40,7 +48,10 @@ export default function Problems({ topic }) {
           }
         >
           <a href="#" onClick={() => setActive("hr")}>
-            HackerRank
+            HackerRank{" "}
+            <span>
+              <FaHackerrank />
+            </span>
           </a>
         </div>
       </div>

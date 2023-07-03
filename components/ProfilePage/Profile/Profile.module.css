@@ -26,3 +26,10 @@
   color: rgb(199, 199, 199);
   font-size: 12px;
 }
+
+.msg {
+  color: rgb(255, 98, 98);
+}
+.successMsg {
+  color: rgb(111, 255, 123);
+}

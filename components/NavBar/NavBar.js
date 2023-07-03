@@ -24,7 +24,8 @@ export default function NavBar() {
     localStorage.removeItem("id");
     localStorage.removeItem("firstName");
     localStorage.removeItem("lastName");
-    push("/");
+    setSignedIn(false);
+    push("/login");
   };
 
   return (

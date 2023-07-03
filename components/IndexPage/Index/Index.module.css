@@ -1,0 +1,40 @@
+.index {
+  text-align: center;
+  padding: 0 300px;
+}
+
+.titleContainer {
+  width: 600px;
+  margin: auto;
+  margin-top: 80px;
+}
+
+.titleContainer p {
+  font-size: 25px;
+  text-align: left;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 60px;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.p {
+  margin-top: 50px;
+  color: rgb(190, 190, 190);
+}
+
+.prev {
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.lastTopic {
+  margin-right: 10px;
+  margin-top: 20px;
+}
