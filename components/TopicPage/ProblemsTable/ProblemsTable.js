@@ -1,11 +1,15 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "./ProblemsTable.module.css";
 
 export default function ProblemsTable({ active, topic }) {
   const [problems, setProblems] = useState([]);
 
+  const { push, reload } = useRouter();
+
   useEffect(() => {
     if (active && topic) {
+      console.log(topic);
       if (active == "cf") {
         if (topic.cfProblems) setProblems(topic.cfProblems);
       } else if (active == "lc") {
@@ -15,6 +19,38 @@ export default function ProblemsTable({ active, topic }) {
       }
     }
   }, [active, topic]);
+
+  const handleToggleSolved = async (problemId) => {
+    if (localStorage.getItem("token") == null) {
+      push("/login");
+      return;
+    }
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + localStorage["token"]);
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      problem: problemId,
+    });
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/problem/toggle-solved",
+        requestOptions
+      );
+      if (response.status == 200) {
+        reload();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <table className={styles.problemsTable}>
       <thead>
@@ -52,7 +88,12 @@ export default function ProblemsTable({ active, topic }) {
               {active == "lc" && <td>{problem.acceptance}%</td>}
               {active == "hr" && <td>{problem.successRate}%</td>}
               <td>
-                <input type="checkbox" className="form-check-input" />
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  checked={problem.solved ? true : false}
+                  onClick={() => handleToggleSolved(problem.id)}
+                />
               </td>
             </tr>
           );

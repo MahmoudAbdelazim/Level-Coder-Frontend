@@ -11,6 +11,9 @@ export default function TopicPage() {
 
   const fetchTopic = async () => {
     var myHeaders = new Headers();
+    if (localStorage.getItem("token") != null) {
+      myHeaders.append("Authorization", "Bearer " + localStorage["token"]);
+    }
 
     var requestOptions = {
       method: "GET",
