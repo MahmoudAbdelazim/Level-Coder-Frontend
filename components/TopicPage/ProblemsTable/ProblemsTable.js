@@ -2,7 +2,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "./ProblemsTable.module.css";
 
-export default function ProblemsTable({ active, topic, setTopic }) {
+export default function ProblemsTable({
+  active,
+  topic,
+  setTopic,
+  calculatePercentages,
+}) {
   const [problems, setProblems] = useState([]);
 
   const { push, reload } = useRouter();
@@ -41,7 +46,7 @@ export default function ProblemsTable({ active, topic, setTopic }) {
         newTopic.cfProblems = result.problems.cfProblems;
         newTopic.lcProblems = result.problems.lcProblems;
         newTopic.hrProblems = result.problems.hrProblems;
-        setTopic(newTopic);
+        setTopic(calculatePercentages(newTopic));
       }
     } catch (err) {
       console.error(err);

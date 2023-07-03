@@ -4,7 +4,7 @@ import { SiCodeforces, SiLeetcode } from "react-icons/si";
 import ProblemsTable from "../ProblemsTable/ProblemsTable";
 import styles from "./Problems.module.css";
 
-export default function Problems({ topic, setTopic }) {
+export default function Problems({ topic, setTopic, calculatePercentages }) {
   const [active, setActive] = useState("cf");
   return (
     <div className={styles.problems}>
@@ -22,6 +22,7 @@ export default function Problems({ topic, setTopic }) {
             <span>
               <SiCodeforces />
             </span>
+            <p>{topic.cfPercentage + "%"}</p>
           </a>
         </div>
         <div
@@ -37,6 +38,7 @@ export default function Problems({ topic, setTopic }) {
             <span>
               <SiLeetcode />
             </span>
+            <p>{topic.lcPercentage + "%"}</p>
           </a>
         </div>
         <div
@@ -52,10 +54,16 @@ export default function Problems({ topic, setTopic }) {
             <span>
               <FaHackerrank />
             </span>
+            <p>{topic.hrPercentage + "%"}</p>
           </a>
         </div>
       </div>
-      <ProblemsTable active={active} topic={topic} setTopic={setTopic} />
+      <ProblemsTable
+        active={active}
+        topic={topic}
+        setTopic={setTopic}
+        calculatePercentages={calculatePercentages}
+      />
     </div>
   );
 }

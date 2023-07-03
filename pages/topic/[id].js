@@ -9,6 +9,37 @@ export default function TopicPage() {
   const router = useRouter();
   const { id } = router.query;
 
+  const calculatePercentages = (fetchedTopic) => {
+    let solvedCfCount = 0,
+      solvedLcCount = 0,
+      solvedHrCount = 0;
+    for (const problem of fetchedTopic.cfProblems) {
+      if (problem.solved) solvedCfCount++;
+    }
+    for (const problem of fetchedTopic.lcProblems) {
+      if (problem.solved) solvedLcCount++;
+    }
+    for (const problem of fetchedTopic.hrProblems) {
+      if (problem.solved) solvedHrCount++;
+    }
+    fetchedTopic.cfSolved = solvedCfCount;
+    fetchedTopic.lcSolved = solvedLcCount;
+    fetchedTopic.hrSolved = solvedHrCount;
+    fetchedTopic.cfPercentage =
+      solvedCfCount == 0
+        ? 0
+        : Math.floor((solvedCfCount / fetchedTopic.cfProblems.length) * 100);
+    fetchedTopic.lcPercentage =
+      solvedLcCount == 0
+        ? 0
+        : Math.floor((solvedLcCount / fetchedTopic.lcProblems.length) * 100);
+    fetchedTopic.hrPercentage =
+      solvedHrCount == 0
+        ? 0
+        : Math.floor((solvedHrCount / fetchedTopic.hrProblems.length) * 100);
+    return fetchedTopic;
+  };
+
   const fetchTopic = async () => {
     var myHeaders = new Headers();
     if (localStorage.getItem("token") != null) {
@@ -27,7 +58,9 @@ export default function TopicPage() {
         requestOptions
       );
       const result = await response.json();
-      setTopic(result.topic);
+      let fetchedTopic = result.topic;
+      fetchedTopic = calculatePercentages(fetchedTopic);
+      setTopic(fetchedTopic);
     } catch (err) {
       console.error(err);
     }
@@ -41,7 +74,11 @@ export default function TopicPage() {
     <>
       <NavBar />
       <div className="main">
-        <Topic topic={topic} setTopic={setTopic} />
+        <Topic
+          topic={topic}
+          setTopic={setTopic}
+          calculatePercentages={calculatePercentages}
+        />
       </div>
       <Footer />
     </>
