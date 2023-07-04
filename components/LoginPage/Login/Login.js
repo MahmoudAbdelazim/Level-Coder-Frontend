@@ -4,6 +4,7 @@ import styles from "./Login.module.css";
 
 export default function Login() {
   const [loginData, setLoginData] = useState({});
+  const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
 
   const { push, reload } = useRouter();
@@ -22,7 +23,9 @@ export default function Login() {
   };
 
   const handleSubmit = async () => {
+    setLoading(true);
     if (!validateData()) {
+      setLoading(false);
       return;
     }
     var myHeaders = new Headers();
@@ -42,6 +45,7 @@ export default function Login() {
       );
       if (response.status == 404 || response.status == 401) {
         setMsg("Username or password is incorrect, please try again");
+        setLoading(false);
         return;
       }
       if (response.status == 200) {
@@ -54,15 +58,27 @@ export default function Login() {
         push("/topics");
       } else {
         setMsg("An error occurred, please try again");
-        return;
       }
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
 
   return (
     <div className={styles.signup}>
+      {loading && (
+        <>
+          <div className="loading-overlay"></div>
+          <div className="loading-overlay-image-container">
+            <img
+              src="/images/loading.gif"
+              className="loading-overlay-img"
+              alt="Loading GIF"
+            />
+          </div>
+        </>
+      )}
       <h1>Welcome to Level Coder</h1>
       <p>Login to your account and continue learning!</p>
       <div className={styles.form}>

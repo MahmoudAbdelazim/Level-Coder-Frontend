@@ -6,6 +6,7 @@ import styles from "./ResourcesTable.module.css";
 export default function ResourcesTable({ topic, setTopic, active }) {
   const [resources, setResources] = useState([]);
   const [cls, setCls] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (active && topic && topic.resources) {
@@ -22,6 +23,7 @@ export default function ResourcesTable({ topic, setTopic, active }) {
   }, [active, topic]);
 
   const fetchResources = async () => {
+    setLoading(true);
     var myHeaders = new Headers();
     if (localStorage.getItem("token") != null) {
       myHeaders.append("Authorization", "Bearer " + localStorage["token"]);
@@ -45,10 +47,13 @@ export default function ResourcesTable({ topic, setTopic, active }) {
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
 
   const handleToggleCompleted = async (resourceId) => {
+    setLoading(true);
     if (localStorage.getItem("token") == null) {
+      setLoading(false);
       push("/login");
       return;
     }
@@ -71,15 +76,28 @@ export default function ResourcesTable({ topic, setTopic, active }) {
         requestOptions
       );
       if (response.status == 200) {
-        fetchResources();
+        await fetchResources();
       }
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
 
   return (
     <table className={styles.resourcesTable}>
+      {loading && (
+        <>
+          <div className="loading-overlay"></div>
+          <div className="loading-overlay-image-container">
+            <img
+              src="/images/loading.gif"
+              className="loading-overlay-img"
+              alt="Loading GIF"
+            />
+          </div>
+        </>
+      )}
       <thead>
         <tr>
           <th className={styles.resourceHeader + " " + cls}>Resource</th>

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function TopicPage() {
   const [topic, setTopic] = useState({});
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { name } = router.query;
 
@@ -42,6 +43,7 @@ export default function TopicPage() {
   };
 
   const fetchTopic = async () => {
+    setLoading(true);
     var myHeaders = new Headers();
     if (localStorage.getItem("token") != null) {
       myHeaders.append("Authorization", "Bearer " + localStorage["token"]);
@@ -69,6 +71,7 @@ export default function TopicPage() {
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
   useEffect(() => {
     if (name) {
@@ -77,6 +80,18 @@ export default function TopicPage() {
   }, [name]);
   return (
     <>
+      {loading && (
+        <>
+          <div className="loading-overlay"></div>
+          <div className="loading-overlay-image-container">
+            <img
+              src="/images/loading.gif"
+              className="loading-overlay-img"
+              alt="Loading GIF"
+            />
+          </div>
+        </>
+      )}
       <Head>
         <title>{topic?.name} - Level Coder</title>
       </Head>

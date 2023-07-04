@@ -6,10 +6,12 @@ export default function NavBar() {
   const [signedIn, setSignedIn] = useState(true);
   const [name, setName] = useState("");
   const [topics, setTopics] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { push, reload } = useRouter();
 
   const fetchTopics = async () => {
+    setLoading(true);
     var requestOptions = {
       method: "GET",
       redirect: "follow",
@@ -25,6 +27,7 @@ export default function NavBar() {
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -52,6 +55,18 @@ export default function NavBar() {
     <nav
       className={`navbar navbar-dark navbar-expand-sm bg-light ${styles.nav}`}
     >
+      {loading && (
+        <>
+          <div className="loading-overlay"></div>
+          <div className="loading-overlay-image-container">
+            <img
+              src="/images/loading.gif"
+              className="loading-overlay-img"
+              alt="Loading GIF"
+            />
+          </div>
+        </>
+      )}
       <div className="container-fluid">
         <a className="navbar-brand" href={"/"}>
           Level Coder

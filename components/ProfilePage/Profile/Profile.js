@@ -6,6 +6,7 @@ export default function Profile() {
   const [userData, setUserData] = useState({});
   const [msg, setMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { push, reload } = useRouter();
 
@@ -49,8 +50,10 @@ export default function Profile() {
   };
 
   const handleUpdateProfile = async () => {
+    setLoading(true);
     setSuccessMsg("");
     if (!validate()) {
+      setLoading(false);
       return;
     }
     var myHeaders = new Headers();
@@ -71,22 +74,38 @@ export default function Profile() {
       );
       if (response.status == 401) {
         setMsg("Current Password is incorrect");
+        setLoading(false);
         return;
       }
       if (response.status == 200) {
         setSuccessMsg("Your profile info are updated successfully");
+        setLoading(false);
         return;
       } else {
         setMsg("An error occurred, please try again");
+        setLoading(false);
         return;
       }
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
 
   return (
     <div className={styles.profile}>
+      {loading && (
+        <>
+          <div className="loading-overlay"></div>
+          <div className="loading-overlay-image-container">
+            <img
+              src="/images/loading.gif"
+              className="loading-overlay-img"
+              alt="Loading GIF"
+            />
+          </div>
+        </>
+      )}
       <h1 className={styles.name}>Mahmoud Abdelazim</h1>
       <div className={styles.form}>
         <label htmlFor="username">Username *</label>

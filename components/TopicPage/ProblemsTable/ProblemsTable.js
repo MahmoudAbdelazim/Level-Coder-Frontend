@@ -10,6 +10,7 @@ export default function ProblemsTable({
   hideSolved,
 }) {
   const [problems, setProblems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { push, reload } = useRouter();
 
@@ -27,6 +28,7 @@ export default function ProblemsTable({
   }, [active, topic]);
 
   const fetchProblems = async () => {
+    setLoading(true);
     var myHeaders = new Headers();
     if (localStorage.getItem("token") != null) {
       myHeaders.append("Authorization", "Bearer " + localStorage["token"]);
@@ -52,10 +54,13 @@ export default function ProblemsTable({
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
 
   const handleToggleSolved = async (problemId) => {
+    setLoading(true);
     if (localStorage.getItem("token") == null) {
+      setLoading(false);
       push("/login");
       return;
     }
@@ -78,15 +83,28 @@ export default function ProblemsTable({
         requestOptions
       );
       if (response.status == 200) {
-        fetchProblems();
+        await fetchProblems();
       }
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
 
   return (
     <table className={styles.problemsTable}>
+      {loading && (
+        <>
+          <div className="loading-overlay"></div>
+          <div className="loading-overlay-image-container">
+            <img
+              src="/images/loading.gif"
+              className="loading-overlay-img"
+              alt="Loading GIF"
+            />
+          </div>
+        </>
+      )}
       <thead>
         <tr>
           <th className={styles.problemHeader}>Problem</th>

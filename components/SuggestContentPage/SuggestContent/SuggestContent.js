@@ -6,6 +6,7 @@ export default function SuggestContent() {
   const [suggestion, setSuggestion] = useState({});
   const [msg, setMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { push, reload } = useRouter();
 
@@ -25,9 +26,11 @@ export default function SuggestContent() {
   };
 
   const handleSubmit = async () => {
+    setLoading(true);
     setMsg("");
     setSuccessMsg("");
     if (!validateData()) {
+      setLoading(false);
       return;
     }
 
@@ -49,6 +52,7 @@ export default function SuggestContent() {
       );
       if (response.status == 200) {
         setSuccessMsg("We received your suggestion, Thank you for your time!");
+        setLoading(false);
         return;
       } else {
         setSuccessMsg("");
@@ -57,9 +61,22 @@ export default function SuggestContent() {
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
   };
   return (
     <div className={styles.suggestContent}>
+      {loading && (
+        <>
+          <div className="loading-overlay"></div>
+          <div className="loading-overlay-image-container">
+            <img
+              src="/images/loading.gif"
+              className="loading-overlay-img"
+              alt="Loading GIF"
+            />
+          </div>
+        </>
+      )}
       <h2>Suggest Content</h2>
       <p className={styles.subtitle}>
         Your suggestions are so valuable for keeping Level Coder interesting{" "}
