@@ -6,6 +6,7 @@ import styles from "./Problems.module.css";
 
 export default function Problems({ topic, setTopic, calculatePercentages }) {
   const [active, setActive] = useState("cf");
+  const [hideSolved, setHideSolved] = useState(false);
   return (
     <div className={styles.problems}>
       <div className={styles.platforms}>
@@ -58,11 +59,22 @@ export default function Problems({ topic, setTopic, calculatePercentages }) {
           </a>
         </div>
       </div>
+      <div className={styles.hideSolvedContainer}>
+        <label htmlFor="hideSolved">Hide solved</label>
+        <input
+          id="hideSolved"
+          type={"checkbox"}
+          className="form-check-input"
+          checked={hideSolved}
+          onChange={(e) => setHideSolved(!hideSolved)}
+        />
+      </div>
       <ProblemsTable
         active={active}
         topic={topic}
         setTopic={setTopic}
         calculatePercentages={calculatePercentages}
+        hideSolved={hideSolved}
       />
     </div>
   );

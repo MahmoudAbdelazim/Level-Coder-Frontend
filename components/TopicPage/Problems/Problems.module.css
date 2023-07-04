@@ -54,6 +54,23 @@
   color: rgb(197, 197, 197);
 }
 
+.hideSolvedContainer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hideSolvedContainer label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.hideSolvedContainer input {
+  margin: auto;
+  padding: 10px;
+  background-color: black !important;
+  display: inline-block;
+}
+
 @media only screen and (max-width: 500px) {
   .problems {
     width: 95%;

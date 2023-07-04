@@ -7,6 +7,7 @@ export default function ProblemsTable({
   topic,
   setTopic,
   calculatePercentages,
+  hideSolved,
 }) {
   const [problems, setProblems] = useState([]);
 
@@ -97,6 +98,7 @@ export default function ProblemsTable({
       </thead>
       <tbody>
         {problems.map((problem) => {
+          if (hideSolved && problem.solved) return;
           return (
             <tr>
               <td>
