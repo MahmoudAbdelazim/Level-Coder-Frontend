@@ -1,13 +1,14 @@
 import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/NavBar/NavBar";
 import Topic from "@/components/TopicPage/Topic/Topic";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function TopicPage() {
   const [topic, setTopic] = useState({});
   const router = useRouter();
-  const { id } = router.query;
+  const { name } = router.query;
 
   const calculatePercentages = (fetchedTopic) => {
     let solvedCfCount = 0,
@@ -54,24 +55,31 @@ export default function TopicPage() {
 
     try {
       const response = await fetch(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "/topic/topic/" + id,
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/topic/topic-by-name/" + name,
         requestOptions
       );
-      const result = await response.json();
-      let fetchedTopic = result.topic;
-      fetchedTopic = calculatePercentages(fetchedTopic);
-      setTopic(fetchedTopic);
+      if (response.status == 200) {
+        const result = await response.json();
+        let fetchedTopic = result.topic;
+        fetchedTopic = calculatePercentages(fetchedTopic);
+        setTopic(fetchedTopic);
+      } else {
+        router.push("/");
+      }
     } catch (err) {
       console.error(err);
     }
   };
   useEffect(() => {
-    if (id) {
+    if (name) {
       fetchTopic();
     }
-  }, [id]);
+  }, [name]);
   return (
     <>
+      <Head>
+        <title>{topic?.name} - Level Coder</title>
+      </Head>
       <NavBar />
       <div className="main">
         <Topic

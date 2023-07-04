@@ -5,7 +5,7 @@ import { SiCodeforces, SiLeetcode } from "react-icons/si";
 export default function TopicPreview({ topic }) {
   return (
     <div className={styles.topicPreviewContainer}>
-      <a href={`/topic/${topic.id}`}>
+      <a href={`/topic/${topic.name}`}>
         <div className={styles.topicPreview}>
           <h2 className={styles.title}>{topic.name}</h2>
           <div className={styles.bottom}>

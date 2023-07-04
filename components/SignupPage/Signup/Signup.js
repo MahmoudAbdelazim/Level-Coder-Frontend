@@ -111,7 +111,7 @@ export default function Signup() {
         <label htmlFor="repeatedPassword">Repeat Password *</label>
         <input
           id="repeatedPassword"
-          type="repeatedPassword"
+          type="password"
           value={signupData.repeatedPassword}
           onChange={(e) =>
             setSignupData({ ...signupData, repeatedPassword: e.target.value })
