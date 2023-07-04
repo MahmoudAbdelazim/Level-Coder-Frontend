@@ -77,7 +77,7 @@ export default function NavBar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                CP Topics
+                Topics
               </a>
               <ul className="dropdown-menu">
                 <li>

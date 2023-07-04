@@ -1,5 +1,13 @@
 .suggestContent {
   text-align: center;
+  margin-bottom: 50px;
+  padding-top: 30px;
+}
+
+.subtitle {
+  color: rgb(206, 206, 206);
+  font-size: 14px;
+  margin-top: 20px;
 }
 
 .form {

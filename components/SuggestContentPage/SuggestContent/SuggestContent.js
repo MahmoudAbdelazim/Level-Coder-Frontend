@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "./SuggestContent.module.css";
 
 export default function SuggestContent() {
   const [suggestion, setSuggestion] = useState({});
   const [msg, setMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+
+  const { push, reload } = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem("token") == null) {
+      push("/login");
+    }
+  }, []);
 
   const validateData = () => {
     if (!suggestion.type || suggestion.type == "choose") {
@@ -51,6 +60,12 @@ export default function SuggestContent() {
   };
   return (
     <div className={styles.suggestContent}>
+      <h2>Suggest Content</h2>
+      <p className={styles.subtitle}>
+        Your suggestions are so valuable for keeping Level Coder interesting{" "}
+        <br />
+        thank you for taking the time to provide us with valuable content
+      </p>
       <div>
         <div className={styles.form}>
           <label htmlFor="type">Content Type</label>
@@ -85,7 +100,7 @@ export default function SuggestContent() {
               setSuggestion({ ...suggestion, topic: e.target.value })
             }
           />
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">Message (Optional)</label>
           <textarea
             id="message"
             value={suggestion.message}
