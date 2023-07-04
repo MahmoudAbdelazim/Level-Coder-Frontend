@@ -18,7 +18,7 @@ export default function Index() {
       </div>
       <p className={styles.subtitle}>
         Level Coder is your number #1 platform for finding different resources
-        to learn problem solving
+        and challenges to learn problem solving
       </p>
       <p className={styles.p}>
         Whether you're preparing for a coding interview or you want to

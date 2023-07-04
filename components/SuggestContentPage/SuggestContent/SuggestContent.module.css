@@ -1,0 +1,73 @@
+.suggestContent {
+  text-align: center;
+}
+
+.form {
+  width: 500px;
+  margin: auto;
+  text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 30px;
+  padding: 30px;
+  border-radius: 30px;
+  margin-top: 30px;
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.msg {
+  color: rgb(255, 98, 98);
+}
+.successMsg {
+  color: rgb(111, 255, 123);
+}
+
+.select,
+.select:focus,
+.select:hover {
+  margin-bottom: 20px;
+  background-color: inherit;
+  color: white;
+  outline: none;
+  border: none;
+  margin-top: 7px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+
+.select option,
+.select option:hover,
+.select option:focus {
+  background-color: rgba(10, 25, 41, 1) !important;
+  color: white !important;
+}
+
+.textarea {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+  color: white;
+  margin-top: 7px;
+}
+
+.textarea:focus,
+.textarea:hover {
+  background-color: inherit;
+  color: white;
+}
+
+.select option {
+  background-color: inherit;
+  color: black;
+}
+
+@media only screen and (max-width: 500px) {
+  .signup {
+    padding-top: 50px;
+  }
+  .form {
+    width: fit-content;
+  }
+}

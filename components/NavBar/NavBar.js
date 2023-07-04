@@ -116,6 +116,11 @@ export default function NavBar() {
                 </li>
               </>
             )}
+            <li className="nav-item">
+              <a className="nav-link" href={"/suggest-content"}>
+                Suggest Content
+              </a>
+            </li>
             {signedIn && (
               <li className="nav-item dropdown">
                 <a

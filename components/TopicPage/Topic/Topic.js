@@ -11,6 +11,7 @@ export default function Topic({ topic, setTopic, calculatePercentages }) {
       <div className={styles.titleContainer}>
         <p className={styles.subtitle}>Learn and Solve</p>
         <h1 className={styles.title}>{topic.name}</h1>
+        <p className={styles.description}>{topic.description}</p>
       </div>
       <div className={styles.main}>
         <div className={styles.cardContainer}>

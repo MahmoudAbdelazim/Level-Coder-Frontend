@@ -51,7 +51,7 @@ export default function Login() {
         localStorage["username"] = result.username;
         localStorage["firstName"] = result.firstName;
         localStorage["lastName"] = result.lastName;
-        push("/");
+        push("/topics");
       } else {
         setMsg("An error occurred, please try again");
         return;

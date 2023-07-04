@@ -9,7 +9,7 @@ export default function TopicPreview({ topic }) {
         <div className={styles.topicPreview}>
           <h2 className={styles.title}>{topic.name}</h2>
           <div className={styles.bottom}>
-            <div className={styles.platform}>
+            <div className={styles.platform + " " + styles.cf}>
               <p className={styles.platformTitle}>
                 <span>
                   <SiCodeforces />
@@ -20,7 +20,7 @@ export default function TopicPreview({ topic }) {
                 <span>{topic.cfCount}</span> Problems
               </p>
             </div>
-            <div className={styles.platform}>
+            <div className={styles.platform + " " + styles.lc}>
               <p className={styles.platformTitle}>
                 <span>
                   <SiLeetcode />
@@ -31,7 +31,7 @@ export default function TopicPreview({ topic }) {
                 <span>{topic.lcCount}</span> Problems
               </p>
             </div>
-            <div className={styles.platform}>
+            <div className={styles.platform + " " + styles.hr}>
               <p className={styles.platformTitle}>
                 <span>
                   <FaHackerrank />
