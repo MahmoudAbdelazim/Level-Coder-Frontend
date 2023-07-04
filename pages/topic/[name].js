@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export async function getStaticPaths() {
   try {
     const res = await fetch(
-      process.env.NEXT_PUBLIC_BACKEND_URL + "/topic/all-topics"
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/topic/all-topic-names"
     );
     const data = await res.json();
     const topics = data.topics;

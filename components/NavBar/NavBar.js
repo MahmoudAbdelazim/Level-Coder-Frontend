@@ -19,7 +19,7 @@ export default function NavBar() {
 
     try {
       const response = await fetch(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "/topic/all-topics",
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/topic/all-topic-names",
         requestOptions
       );
       const result = await response.json();
