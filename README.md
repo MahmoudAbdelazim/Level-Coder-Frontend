@@ -1,4 +1,4 @@
-![4](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/25fb6989-3c30-41e9-9c99-9cb5d629a535)# Level-Coder-Frontend
+# Level-Coder-Frontend
 
 Welcome to Level Coder, a collection of problem solving learning resources in Arabic and English, with problems to practice every topic on CodeForces, LeetCode and HackerRank.
 
