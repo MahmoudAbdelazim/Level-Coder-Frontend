@@ -1,4 +1,4 @@
-# Level-Coder-Frontend
+![4](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/25fb6989-3c30-41e9-9c99-9cb5d629a535)# Level-Coder-Frontend
 
 Welcome to Level Coder, a collection of problem solving learning resources in Arabic and English, with problems to practice every topic on CodeForces, LeetCode and HackerRank.
 
@@ -6,35 +6,24 @@ It allows you to track your progress by creating an account and check the proble
 
 Here are some screenshots for the website:
 
-![1](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/9ff76b15-12e9-4163-8c4f-75f329769596)
+![1](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/5de6acda-d528-4b78-839c-c9144e844601)
 
-![2](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/312619f5-7559-49ba-a4c9-e918f691825e)
+![2](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/1e8d713f-65e2-4ac6-8745-c1bd83add71f)
 
-![3](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/a8867c1c-b7b0-4670-8a90-f5b0851a06e8)
+![3](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/cb98d09f-b136-44ec-b0bf-b7bbeee37f68)
 
-![4](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/7c8c1d80-bb7e-45fc-8291-dbf2c9be921c)
+![4](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/e95c5dfb-b9f9-445c-b01f-9ea5ba6644ec)
 
-![5](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/37b02b1f-2b4e-42c4-8d47-be191ffaa424)
+![5](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/00cdf792-d47d-44b4-ad2f-9d1929ceb8d0)
 
-![6](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/b1fef1d2-6ed2-464f-96d6-c0eb4e595cb4)
+![6](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/729d8bd0-ec16-4b0d-b11b-52dfbf861dbd)
 
-![7](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/d2e0c300-ba65-4e98-80c0-561711a96831)
+![7](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/314da634-3943-431b-915f-41725ae7e79f)
 
-![8](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/8cf77265-5f49-4a64-8b7a-992d99f27e74)
+![8](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/037ca409-e159-4834-9216-f589c9f2588e)
 
-![9](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/3361b77c-d204-4c6c-a3be-efbbf7ca3f89)
+![9](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/8a87cd42-2645-427a-bea4-d57088ecf611)
 
-![10](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/4d546d0a-aaa9-4df5-94bd-5081c6dde85d)
+![10](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/a2b78b83-11a1-42fd-a8bc-3114e3c1ee36)
 
-![11](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/6ec17108-5f74-4353-9e84-5b3b2d3badb4)
-
-
-
-
-
-
-
-
-
-
-
+![11](https://github.com/MahmoudAbdelazim/Level-Coder-Frontend/assets/43009893/a58dbaea-dc5d-4672-87a3-954af824f2ee)
